@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
+
+
+Route::get('/iletisim', function () {
+    return view('frontend.iletisim');
+});
+
+Route::group(['prefix'=>'admin'],function (){
+    Route::get('/','AdminController@get_index');
+    Route::get('/ayarlar','AdminController@get_ayarlar');
+});
+
