@@ -23,5 +23,6 @@ Route::get('/iletisim', function () {
 Route::group(['prefix'=>'admin'],function (){
     Route::get('/','AdminController@get_index');
     Route::get('/ayarlar','AdminController@get_ayarlar');
+    Route::post('/ayarlar','AdminController@post_ayarlar');
 });
 

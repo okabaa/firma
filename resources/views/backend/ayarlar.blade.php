@@ -28,7 +28,10 @@
             <div class="x_content">
 
 
-                <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    {{csrf_field()}}
+                    <div class="" role="tabpanel" data-example-id="togglable-tabs">
+
                     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#genel_ayarlar" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Genel Ayarlar</a>
                         </li>
@@ -48,8 +51,6 @@
 
 
                         <div role="tabpanel" class="tab-pane fade active in" id="genel_ayarlar" aria-labelledby="home-tab">
-
-                            <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Site Başlığı
@@ -78,12 +79,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button type="submit" name="genel_ayarlar" class="btn btn-success">Kaydet</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
 
 
@@ -91,8 +86,6 @@
 
 
                         <div role="tabpanel" class="tab-pane fade" id="iletisim_ayarlari" aria-labelledby="profile-tab">
-
-                            <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Telefon
@@ -133,12 +126,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button type="submit" name="iletisim_ayarlari" class="btn btn-success">Kaydet</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
 
 
@@ -146,8 +133,6 @@
 
 
                         <div role="tabpanel" class="tab-pane fade" id="sosyal_medya" aria-labelledby="profile-tab">
-
-                            <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Facebook
@@ -176,12 +161,6 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button type="submit" name="sosyal_medya" class="btn btn-success">Kaydet</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
 
 
@@ -189,8 +168,6 @@
 
 
                         <div role="tabpanel" class="tab-pane fade" id="google_api" aria-labelledby="profile-tab">
-
-                            <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Google Hesabı
@@ -218,13 +195,6 @@
                                         <input class="form-control col-md-7 col-xs-12" type="text" name="analystic">
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button type="submit" name="iletisim_ayarlari" class="btn btn-success">Kaydet</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
 
 
@@ -232,8 +202,6 @@
 
 
                         <div role="tabpanel" class="tab-pane fade" id="mail_ayarları" aria-labelledby="profile-tab">
-
-                            <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kullanıcı Adı
@@ -262,12 +230,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                        <button type="submit" name="iletisim_ayarlari" class="btn btn-success">Kaydet</button>
-                                    </div>
-                                </div>
-                            </form>
+
                         </div>
 
 
@@ -276,6 +239,12 @@
 
                     </div>
                 </div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                            <button type="submit" class="btn btn-success">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
 
             </div>
         </div>
