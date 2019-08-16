@@ -178,6 +178,7 @@ return [
 
         //Bizim eklediklerimiz
         Collective\Html\HtmlServiceProvider::class,
+        App\Providers\FormServiceProvider::class,
 
     ],
 

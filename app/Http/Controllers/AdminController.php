@@ -17,6 +17,13 @@ class AdminController extends Controller
     }
 
     public function post_ayarlar(Request $request){
-        Ayarlar::create($request->all());
+        unset($request['_token']);
+        $ayarlar = Ayarlar::where('id',1)->update($request->all());
+
+        if ($ayarlar) {
+            return response(['durum'=>'success','baslik'=>'Başarılı','icerik'=>'Kayıt başarıyla yapıldı.']);
+        }else{
+            return response(['durum'=>'error','baslik'=>'Hatalı','icerik'=>'Kayıt yapılamadı.']);
+        }
     }
 }

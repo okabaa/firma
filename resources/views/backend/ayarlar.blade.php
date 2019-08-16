@@ -28,7 +28,7 @@
             <div class="x_content">
 
 
-                <form method="post" id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                <form method="post" id="form" data-parsley-validate class="form-horizontal form-label-left">
                     {{csrf_field()}}
                     <div class="" role="tabpanel" data-example-id="togglable-tabs">
 
@@ -45,198 +45,38 @@
                         </li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
-
-
-
-
-
                         <div role="tabpanel" class="tab-pane fade active in" id="genel_ayarlar" aria-labelledby="home-tab">
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Site Başlığı
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="title">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Site Anahtar Kelimeler
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="keywords" class="form-control col-md-7 col-xs-12">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Site Açıklama</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="description">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Site Adresi</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="url">
-                                    </div>
-                                </div>
-
+                            {{Form::bsText('title','Site Başlığı')}}
+                            {{Form::bsText('keywords','Site Anahtar Kelimeler')}}
+                            {{Form::bsText('description','Site Açıklama')}}
+                            {{Form::bsText('url','Site Adresi')}}
                         </div>
-
-
-
-
-
                         <div role="tabpanel" class="tab-pane fade" id="iletisim_ayarlari" aria-labelledby="profile-tab">
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Telefon
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="telefon">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">GSM
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="gsm" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Faks</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="faks">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Adres</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="adres">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">İl</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="il">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">İlçe</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="ilce">
-                                    </div>
-                                </div>
-
+                            {{Form::bsText('tel','Telefon')}}
+                            {{Form::bsText('gsm','GSM')}}
+                            {{Form::bsText('faks','Faks')}}
+                            {{Form::bsText('adres','Adres')}}
+                            {{Form::bsText('il','İl')}}
+                            {{Form::bsText('ilce','İlçe')}}
                         </div>
-
-
-
-
-
                         <div role="tabpanel" class="tab-pane fade" id="sosyal_medya" aria-labelledby="profile-tab">
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Facebook
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="facebook">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Twitter
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="twitter" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Instagram</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="instagram">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Youtube</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="youtube">
-                                    </div>
-                                </div>
-
+                            {{Form::bsText('facebook','Facebook')}}
+                            {{Form::bsText('twitter','Twitter')}}
+                            {{Form::bsText('instagram','Instagram')}}
+                            {{Form::bsText('youtube','Youtube')}}
                         </div>
-
-
-
-
-
                         <div role="tabpanel" class="tab-pane fade" id="google_api" aria-labelledby="profile-tab">
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Google Hesabı
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="google">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Google Recapctha
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="recapctha" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Google Maps</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="maps">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Google Analystic</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="analystic">
-                                    </div>
-                                </div>
+                            {{Form::bsText('google','Google Hesabı')}}
+                            {{Form::bsText('recapctha','Google Recapctha')}}
+                            {{Form::bsText('maps','Google Maps')}}
+                            {{Form::bsText('analystic','Google Analystic')}}
                         </div>
-
-
-
-
-
                         <div role="tabpanel" class="tab-pane fade" id="mail_ayarları" aria-labelledby="profile-tab">
-
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Kullanıcı Adı
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" class="form-control col-md-7 col-xs-12" name="smtp_user">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Şifre
-                                    </label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="password" class="form-control col-md-7 col-xs-12" name="sifre" >
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">SMTP Host</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="smptp_host">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">SMTP Port</label>
-                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input class="form-control col-md-7 col-xs-12" type="text" name="smptp_port">
-                                    </div>
-                                </div>
-
-
+                            {{Form::bsText('smtp_user','Kullanıcı Adı')}}
+                            {{Form::bsPassword('smtp_password','Şifre')}}
+                            {{Form::bsText('smtp_host','SMTP Host')}}
+                            {{Form::bsText('smtp_port','SMTP Port')}}
                         </div>
-
-
-
-
-
                     </div>
                 </div>
                     <div class="form-group">
@@ -254,111 +94,27 @@
     </div>
 @endsection
 
-@section('css')
-    <link href="/backend/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="/backend/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- PNotify -->
-    <link href="/backend/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="/backend/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="/backend/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+@section('js')
+    <script src="/js/jquery.form.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/messages_tr.min.js"></script>
+    <script src="/js/sweetalert2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').validate();
+            $('form').ajaxForm({
+                beforeSubmit:function () {
 
-    <!-- Custom Theme Style -->
-    <link href="/backend/build/css/custom.min.css" rel="stylesheet">
+                },
+                success:function (response) {
+                        swal.fire(response.baslik, response.icerik, response.durum)
+                }
+            })
+        })
+    </script>
 @endsection
 
-@section('js')
-    <script src="/backend/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <!-- iCheck -->
-    <script src="/backend/vendors/iCheck/icheck.min.js"></script>
-    <!-- PNotify -->
-    <script src="/backend/vendors/pnotify/dist/pnotify.js"></script>
-    <script src="/backend/vendors/pnotify/dist/pnotify.buttons.js"></script>
-    <script src="/backend/vendors/pnotify/dist/pnotify.nonblock.js"></script>
-
-    <!-- Custom Theme Scripts -->
-    <script src="/backend/build/js/custom.min.js"></script>
-
-    <!-- PNotify -->
-    <script>
-        $(document).ready(function() {
-            new PNotify({
-                title: "PNotify",
-                type: "info",
-                text: "Welcome. Try hovering over me. You can click things behind me, because I'm non-blocking.",
-                nonblock: {
-                    nonblock: true
-                },
-                addclass: 'dark',
-                styling: 'bootstrap3',
-                hide: false,
-                before_close: function(PNotify) {
-                    PNotify.update({
-                        title: PNotify.options.title + " - Enjoy your Stay",
-                        before_close: null
-                    });
-
-                    PNotify.queueRemove();
-
-                    return false;
-                }
-            });
-
-        });
-    </script>
-    <!-- /PNotify -->
-
-    <!-- Custom Notification -->
-    <script>
-        $(document).ready(function() {
-            var cnt = 10;
-
-            TabbedNotification = function(options) {
-                var message = "<div id='ntf" + cnt + "' class='text alert-" + options.type + "' style='display:none'><h2><i class='fa fa-bell'></i> " + options.title +
-                    "</h2><div class='close'><a href='javascript:;' class='notification_close'><i class='fa fa-close'></i></a></div><p>" + options.text + "</p></div>";
-
-                if (!document.getElementById('custom_notifications')) {
-                    alert('doesnt exists');
-                } else {
-                    $('#custom_notifications ul.notifications').append("<li><a id='ntlink" + cnt + "' class='alert-" + options.type + "' href='#ntf" + cnt + "'><i class='fa fa-bell animated shake'></i></a></li>");
-                    $('#custom_notifications #notif-group').append(message);
-                    cnt++;
-                    CustomTabs(options);
-                }
-            };
-
-            CustomTabs = function(options) {
-                $('.tabbed_notifications > div').hide();
-                $('.tabbed_notifications > div:first-of-type').show();
-                $('#custom_notifications').removeClass('dsp_none');
-                $('.notifications a').click(function(e) {
-                    e.preventDefault();
-                    var $this = $(this),
-                        tabbed_notifications = '#' + $this.parents('.notifications').data('tabbed_notifications'),
-                        others = $this.closest('li').siblings().children('a'),
-                        target = $this.attr('href');
-                    others.removeClass('active');
-                    $this.addClass('active');
-                    $(tabbed_notifications).children('div').hide();
-                    $(target).show();
-                });
-            };
-
-            CustomTabs();
-
-            var tabid = idname = '';
-
-            $(document).on('click', '.notification_close', function(e) {
-                idname = $(this).parent().parent().attr("id");
-                tabid = idname.substr(-2);
-                $('#ntf' + tabid).remove();
-                $('#ntlink' + tabid).parent().remove();
-                $('.notifications a').first().addClass('active');
-                $('#notif-group div').first().css('display', 'block');
-            });
-        });
-    </script>
-    <!-- /Custom Notification -->
-
+@section('css')
+    <link href="/css/sweetalert2.min.css" rel="stylesheet">
 
 @endsection
