@@ -26,6 +26,7 @@ class FormServiceProvider extends ServiceProvider
     {
         //
         Form::component('bsText', 'components.form.text', ['name','isim','value'=> null, 'attributes' => ['']]);
-        Form::component('bsPassword', 'components.form.password', ['name','isim', 'attributes' => ['']]);
+        Form::component('bsPassword', 'components.form.password', ['name','isim','attributes' => ['']]);
+        Form::component('bsInputPassword', 'components.form.inputPassword', ['name','isim','value'=> null,'attributes' => ['']]);
     }
 }
