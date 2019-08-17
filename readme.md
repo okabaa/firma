@@ -70,3 +70,32 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Educational Resource
+
+[EDUKEY By Emrah Yüksel](https://www.youtube.com/playlist?list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM)
+
+####- [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 6](https://www.youtube.com/watch?v=xwbkvRhM5hg&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=6)
+- Html themplate parçalama
+- Projeye html template ekleme
+
+####- [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 7](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=7)
+- Admin panlede site ayarlarının yapılacağı sayfa
+
+####- [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 8](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=8)
+- Veri tabanı ve ayarlar tablosu oluşturmak
+- Oluşturulan tabloya veri ekleme
+- Laravel Collective paketinin kurulumu
+
+####- [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 9](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=9)
+- Laravel Collective ile custom form oluşturma
+- Jquery form eklentisini projeye ekleme
+- Jquery validation eklentisini projeye ekleme
+- Sweet alert eklentisini projeye ekleme
+
+####- [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 10](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=10)
+- Ayarlar tablosundan veri çekme
+- Image intervention eklentisi
+- Resim yükleme
+- Resim boyutlandırma
+- Server taraflı validasyon
