@@ -82,18 +82,18 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 #### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 7](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=7)
 - Admin panlede site ayarlarının yapılacağı sayfa
 
-#### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 8](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=8)
+#### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 8](https://www.youtube.com/watch?v=0fdm_ZyvwA0&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=8)
 - Veri tabanı ve ayarlar tablosu oluşturmak
 - Oluşturulan tabloya veri ekleme
 - Laravel Collective paketinin kurulumu
 
-#### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 9](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=9)
+#### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 9](https://www.youtube.com/watch?v=Or31mhNXz3s&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=9)
 - Laravel Collective ile custom form oluşturma
 - Jquery form eklentisini projeye ekleme
 - Jquery validation eklentisini projeye ekleme
 - Sweet alert eklentisini projeye ekleme
 
-#### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 10](https://www.youtube.com/watch?v=tfRpwXoQ488&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=10)
+#### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 10](https://www.youtube.com/watch?v=JbOtCDfvjM0&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=10)
 - Ayarlar tablosundan veri çekme
 - Image intervention eklentisi
 - Resim yükleme
