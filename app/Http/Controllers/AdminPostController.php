@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ayarlar;
+use App\Hakkimizda;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
@@ -42,6 +43,18 @@ class AdminPostController extends AdminController
                 Ayarlar::where('id', 1)->update(['logo'=>$eski_logo]);
             }
 
+            return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Kayıt başarıyla yapıldı.']);
+        }
+        catch (\Exception $e){
+            return response(['durum'=>'error','baslik'=>'Hatalı','icerik'=>'Kayıt yapılamadı.']);
+        }
+    }
+
+    public function post_hakkimizda(Request $request){
+
+        try {
+            unset($request['_token']);
+            Hakkimizda::where('id', 1)->update($request->all());
             return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Kayıt başarıyla yapıldı.']);
         }
         catch (\Exception $e){

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ayarlar;
+use App\Hakkimizda;
 
 class AdminGetController extends AdminController
 {
@@ -18,6 +19,7 @@ class AdminGetController extends AdminController
     }
 
     public function get_hakkimizda(){
-        return view('backend.hakkimizda');
+        $hakkimizda = Hakkimizda::where('id',1)->select('hakkimizda.*')->first();
+        return view('backend.hakkimizda')->with('hakkimizda',$hakkimizda);
     }
 }

@@ -23,5 +23,6 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/ayarlar','AdminGetController@get_ayarlar');
     Route::get('/hakkimizda','AdminGetController@get_hakkimizda');
     Route::post('/ayarlar','AdminPostController@post_ayarlar');
+    Route::post('/hakkimizda','AdminPostController@post_hakkimizda');
 });
 

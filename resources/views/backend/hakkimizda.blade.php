@@ -14,17 +14,26 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
-                        <div class="x_title">
-                            <h2>Hakkımızda</h2>
-
-                            <div class="clearfix"></div>
-                        </div>
                         <div class="x_content">
                             <form action="" method="post" id="form" data-parsley-validate class="form-horizontal form-label-left">
-                                {{Form::bsText('facebook','Facebook')}}
-                                {{Form::bsText('twitter','Twitter')}}
-                                {{Form::bsText('instagram','Instagram')}}
-                                {{Form::bsText('youtube','Youtube')}}
+                                {{csrf_field()}}
+                                {{Form::bsText('vizyon','Vizyonumuz',$hakkimizda->vizyon)}}
+                                {{Form::bsText('misyon','Misyonumuz',$hakkimizda->misyon)}}
+                                {{Form::bsText('kisa_yazi','Kısa Yazı',$hakkimizda->kisa_yazi)}}
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo-name">Açıklama
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <textarea name="icerik" id="" cols="30" rows="10" class="form-control col-md-7 col-xs-12">{{$hakkimizda->icerik}}</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                        <button type="submit" class="btn btn-success">Kaydet</button>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -35,9 +44,25 @@
 @endsection
 
 @section('js')
+    <script src="/js/jquery.form.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/messages_tr.min.js"></script>
+    <script src="/js/sweetalert2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').validate();
+            $('form').ajaxForm({
+                beforeSubmit:function () {
 
+                },
+                success:function (response) {
+                    swal.fire(response.baslik, response.icerik, response.durum)
+                }
+            })
+        })
+    </script>
 @endsection
 
 @section('css')
-
+    <link href="/css/sweetalert2.min.css" rel="stylesheet">
 @endsection

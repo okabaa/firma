@@ -104,3 +104,7 @@ The Laravel framework is open-source software licensed under the [MIT license](h
 - Controller'lar get ve post olarak ikiye ayrıldı
 - Ön taraf iletişim sayfası düzenlendi
 - Hem ön taraf hem admin panel için hakkımızda sayfası script düzenlendi
+
+#### [Php Dersleri - Laravel 5 Eğitim Seti Bölüm - 12](https://www.youtube.com/watch?v=m050VQTuHNo&list=PLZtkgIR0fgTH2bZmadFPgwCTKIctvMwpM&index=12)
+- Hem ön taraf hem admin panel için hakkımızda sayfası 
+- Menüler düzenlendi
