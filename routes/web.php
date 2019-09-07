@@ -17,12 +17,17 @@ Route::get('/anasayfa', 'HomeGetController@get_index_yonlendir');
 Route::get('/home', 'HomeGetController@get_index_yonlendir');
 Route::get('/iletisim', 'HomeGetController@get_iletisim');
 Route::get('/hakkimizda', 'HomeGetController@get_hakkimizda');
+Route::get('/blog', 'HomeGetController@get_blog');
+Route::get('/blog/blog-detay', 'HomeGetController@get_blog_detay');
 
 Route::group(['prefix'=>'admin'],function (){
     Route::get('/','AdminGetController@get_index');
     Route::get('/ayarlar','AdminGetController@get_ayarlar');
     Route::get('/hakkimizda','AdminGetController@get_hakkimizda');
+    Route::get('/blog','AdminGetController@get_blog');
+    Route::get('/blog/blog-ekle','AdminGetController@get_blog_ekle');
     Route::post('/ayarlar','AdminPostController@post_ayarlar');
     Route::post('/hakkimizda','AdminPostController@post_hakkimizda');
+    Route::post('/blog/blog-ekle','AdminPostController@post_blog_ekle');
 });
 

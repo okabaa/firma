@@ -22,4 +22,12 @@ class AdminGetController extends AdminController
         $hakkimizda = Hakkimizda::where('id',1)->select('hakkimizda.*')->first();
         return view('backend.hakkimizda')->with('hakkimizda',$hakkimizda);
     }
+
+    public function get_blog(){
+        return view('backend.blog');
+    }
+
+    public function get_blog_ekle(){
+        return view('backend.blog-ekle');
+    }
 }

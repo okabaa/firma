@@ -30,4 +30,12 @@ class HomeGetController extends HomeController
         $hakkimizda = Hakkimizda::where('id',1)->select('hakkimizda.*')->first();
         return view('frontend.hakkimizda')->with('hakkimizda',$hakkimizda);
     }
+
+    public function get_blog(){
+        return view('frontend.blog');
+    }
+
+    public function get_blog_detay(){
+        return view('frontend.blog-detay');
+    }
 }

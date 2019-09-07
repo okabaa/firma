@@ -45,8 +45,16 @@
                         <h3>Genel</h3>
                         <ul class="nav side-menu">
                             <li><a href="/admin"><i class="fa fa-home"></i> Ana Sayfa </a></li>
-                            <li><a href="/admin/ayarlar"><i class="fa fa-cog"></i> Ayarlar </a></li>
+                            <li><a><i class="fa fa-edit"></i> Blog <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/admin/blog">Bloglar</a></li>
+                                    <li><a href="/admin/blog/blog-ekle">Blog Ekle</a></li>
+                                    <li><a href="/admin/blog/">Katagoriler</a></li>
+                                    <li><a href="/admin/blog/">Katagori Ekle</a></li>
+                                </ul>
+                            </li>
                             <li><a href="/admin/hakkimizda"><i class="fa fa-edit"></i> Hakkımızda </a></li>
+                            <li><a href="/admin/ayarlar"><i class="fa fa-cog"></i> Ayarlar </a></li>
                         </ul>
                     </div>
 
