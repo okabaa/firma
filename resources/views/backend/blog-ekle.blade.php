@@ -20,6 +20,14 @@
                             <form method="post" id="form" data-parsley-validate class="form-horizontal form-label-left">
                                 {{csrf_field()}}
 
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo-name">Resimler
+                                    </label>
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <input type="file" name="resimler[]" multiple
+                                               class="form-control col-md-7 col-xs-12">
+                                    </div>
+                                </div>
                                 {{Form::bsText('baslik','Başlik')}}
                                 {{Form::bsText('etiketler','Etiketler')}}
                                 <div class="form-group">
@@ -54,13 +62,17 @@
         $(document).ready(function () {
             $('form').validate();
             $('form').ajaxForm({
-                beforeSubmit:function () {
-
+                beforeSubmit: function () {
+                    swal.fire({
+                        title: '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> <span class="sr-only">Loading...</span>',
+                        text: 'Yükleniyor lütfen bekleyin...',
+                        showConfirmButton: false
+                    })
                 },
-                beforeSerialize: function() {
-                  for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement();
+                beforeSerialize: function () {
+                    for (instance in CKEDITOR.instances) CKEDITOR.instances[instance].updateElement();
                 },
-                success:function (response) {
+                success: function (response) {
                     swal.fire(response.baslik, response.icerik, response.durum)
                 }
             })

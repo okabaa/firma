@@ -48,7 +48,7 @@ class AdminPostController extends AdminController
 
             return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Kayıt başarıyla yapıldı.']);
         } catch (\Exception $e) {
-            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>'. $e->getMessage()]);
+            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>' . $e->getMessage()]);
         }
     }
 
@@ -60,21 +60,35 @@ class AdminPostController extends AdminController
             Hakkimizda::where('id', 1)->update($request->all());
             return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Kayıt başarıyla yapıldı.']);
         } catch (\Exception $e) {
-            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>'. $e->getMessage()]);
+            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>' . $e->getMessage()]);
         }
     }
 
     public function post_blog_ekle(Request $request)
     {
+        $tarih = str_slug(Carbon::now());
+        $slug = str_slug($request->baslik) . '-' . $tarih;
+        $resimler = $request->file('resimler');
+
+        if (!empty($resimler)) {
+             $i = 0;
+            foreach ($resimler as $resim) {
+                $i++;
+                $resim_uzanti = $resim->getClientOriginalExtension();
+                $resim_isim = $i.'_'.$tarih.'.' . $resim_uzanti;
+                Storage::disk('uploads')->makeDirectory('img/blog/'.$slug);
+                Storage::disk('uploads')->put('img/blog/'.$slug.'/'.$resim_isim,file_get_contents($resim));
+            }
+        }
         try {
             unset($request['_token']);
             $tarih = str_slug(Carbon::now());
-            $slug = str_slug($request->baslik).'-'.$tarih;
-            $request->merge(['slug'=>$slug]);
+            $slug = str_slug($request->baslik) . '-' . $tarih;
+            $request->merge(['slug' => $slug]);
             Blog::create($request->all());
             return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Kayıt başarıyla yapıldı.']);
         } catch (\Exception $e) {
-            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>'. $e->getMessage()]);
+            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>' . $e->getMessage()]);
         }
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ayarlar;
+use App\Blog;
 use App\Hakkimizda;
 
 class AdminGetController extends AdminController
@@ -24,7 +25,8 @@ class AdminGetController extends AdminController
     }
 
     public function get_blog(){
-        return view('backend.blog');
+        $bloglar = Blog::all();
+        return view('backend.blog')->with('bloglar',$bloglar);
     }
 
     public function get_blog_ekle(){

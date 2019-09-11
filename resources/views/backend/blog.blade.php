@@ -21,25 +21,29 @@
                                 <table id="datatable-buttons" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Başlık</th>
+                                        <th>Yazar</th>
+                                        <th>Katagorisi</th>
+                                        <th>Hit</th>
+                                        <th>Yorum Sayısı</th>
+                                        <th>Ekleme</th>
+                                        <th>Düzenleme</th>
                                     </tr>
                                     </thead>
 
 
                                     <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
+                                    @foreach($bloglar as $blog)
+                                        <tr>
+                                            <td>{{$blog->baslik}}</td>
+                                            <td>{{$blog->yazar}}</td>
+                                            <td>{{$blog->kategori}}</td>
+                                            <td>0</td>
+                                            <td>0</td>
+                                            <td>{{$blog->created_at}}</td>
+                                            <td>{{$blog->updated_at}}</td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -82,8 +86,8 @@
 
     <!-- Datatables -->
     <script>
-        $(document).ready(function() {
-            var handleDataTableButtons = function() {
+        $(document).ready(function () {
+            var handleDataTableButtons = function () {
                 if ($("#datatable-buttons").length) {
                     $("#datatable-buttons").DataTable({
                         dom: "Bfrtip",
@@ -114,10 +118,10 @@
                 }
             };
 
-            TableManageButtons = function() {
+            TableManageButtons = function () {
                 "use strict";
                 return {
-                    init: function() {
+                    init: function () {
                         handleDataTableButtons();
                     }
                 };
@@ -146,12 +150,12 @@
             var $datatable = $('#datatable-checkbox');
 
             $datatable.dataTable({
-                'order': [[ 1, 'asc' ]],
+                'order': [[1, 'asc']],
                 'columnDefs': [
-                    { orderable: false, targets: [0] }
+                    {orderable: false, targets: [0]}
                 ]
             });
-            $datatable.on('draw.dt', function() {
+            $datatable.on('draw.dt', function () {
                 $('input').iCheck({
                     checkboxClass: 'icheckbox_flat-green'
                 });
