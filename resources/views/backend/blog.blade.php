@@ -21,28 +21,46 @@
                                 <table id="datatable-buttons" class="table table-striped table-bordered">
                                     <thead>
                                     <tr>
+                                        <th>Ekleme</th>
                                         <th>Başlık</th>
                                         <th>Yazar</th>
                                         <th>Katagorisi</th>
                                         <th>Hit</th>
                                         <th>Yorum Sayısı</th>
-                                        <th>Ekleme</th>
                                         <th>Düzenleme</th>
+                                        <th>Sil</th>
+                                        <th>Düzenle</th>
                                     </tr>
                                     </thead>
 
 
                                     <tbody>
+                                    @php
+                                        $sira = 1;
+                                    @endphp
                                     @foreach($bloglar as $blog)
                                         <tr>
+                                            <td>{{$blog->created_at}}</td>
                                             <td>{{$blog->baslik}}</td>
                                             <td>{{$blog->yazar}}</td>
                                             <td>{{$blog->kategori}}</td>
                                             <td>0</td>
                                             <td>0</td>
-                                            <td>{{$blog->created_at}}</td>
                                             <td>{{$blog->updated_at}}</td>
+                                            <td>
+                                                <form action="" method="post" id="form" name="form">
+                                                    {{csrf_field()}}
+                                                    <input type="hidden" name="slug" value="{{$blog->slug}}">
+                                                    <input type="hidden" name="sira" value="{{$sira}}" id="sira">
+                                                    <input type="submit" class="btn btn-danger" value="Sil">
+                                                </form>
+                                            </td>
+                                            <td><a href="blog/blog-duzenle/{{$blog->slug}}" class="btn btn-primary">Düzenle</a> </td>
                                         </tr>
+
+                                        @php
+                                            $sira++;
+                                        @endphp
                                     @endforeach
                                     </tbody>
                                 </table>
@@ -63,9 +81,14 @@
     <link href="/backend/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
     <link href="/backend/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="/backend/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="/css/sweetalert2.min.css" rel="stylesheet">
 @endsection
 
 @section('js')
+    <script src="/js/jquery.form.min.js"></script>
+    <script src="/js/jquery.validate.min.js"></script>
+    <script src="/js/messages_tr.min.js"></script>
+    <script src="/js/sweetalert2.min.js"></script>
 
     <!-- Datatables -->
     <script src="/backend/vendors/jszip/dist/jszip.min.js"></script>
@@ -83,6 +106,25 @@
     <script src="/backend/vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
     <script src="/backend/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="/backend/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('form').ajaxForm({
+                beforeSubmit: function () {
+                },
+                beforeSerialize: function () {
+                },
+                success: function (response) {
+                    swal.fire(response.baslik, response.icerik, response.durum)
+                    if (response.durum == 'success') {
+                        var form = document.getElementById("form");
+                        var sira = form.elements[2].value;
+                        document.getElementById("datatable-buttons").deleteRow(sira);
+                    }
+                }
+            })
+        })
+    </script>
 
     <!-- Datatables -->
     <script>

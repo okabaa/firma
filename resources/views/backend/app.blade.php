@@ -47,10 +47,10 @@
                             <li><a href="/admin"><i class="fa fa-home"></i> Ana Sayfa </a></li>
                             <li><a><i class="fa fa-edit"></i> Blog <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/admin/blog">Bloglar</a></li>
+                                    <li><a href="/admin/blog/">Bloglar</a></li>
                                     <li><a href="/admin/blog/blog-ekle">Blog Ekle</a></li>
-                                    <li><a href="/admin/blog/">Katagoriler</a></li>
-                                    <li><a href="/admin/blog/">Katagori Ekle</a></li>
+                                    <li><a href="/admin/blog/katagori">Katagoriler</a></li>
+                                    <li><a href="/admin/blog/katagori-ekle">Katagori Ekle</a></li>
                                 </ul>
                             </li>
                             <li><a href="/admin/hakkimizda"><i class="fa fa-edit"></i> Hakkımızda </a></li>
@@ -91,7 +91,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="/uploads/img/logo.jpg" alt="">Oğuzhan KABA
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -115,7 +115,7 @@
                             <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
                                 <li>
                                     <a>
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="/uploads/img/logo.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -127,7 +127,7 @@
                                 </li>
                                 <li>
                                     <a>
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="/uploads/img/logo.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -139,7 +139,7 @@
                                 </li>
                                 <li>
                                     <a>
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="/uploads/img/logo.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>
@@ -151,7 +151,7 @@
                                 </li>
                                 <li>
                                     <a>
-                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span class="image"><img src="/uploads/img/logo.jpg" alt="Profile Image" /></span>
                                         <span>
                           <span>John Smith</span>
                           <span class="time">3 mins ago</span>

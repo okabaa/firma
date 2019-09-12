@@ -32,4 +32,8 @@ class AdminGetController extends AdminController
     public function get_blog_ekle(){
         return view('backend.blog-ekle');
     }
+
+    public function get_blog_duzenle($slug){
+        return view('backend.blog-duzenle')->with('slug',$slug);
+    }
 }

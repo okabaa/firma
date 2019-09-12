@@ -24,10 +24,16 @@ Route::group(['prefix'=>'admin'],function (){
     Route::get('/','AdminGetController@get_index');
     Route::get('/ayarlar','AdminGetController@get_ayarlar');
     Route::get('/hakkimizda','AdminGetController@get_hakkimizda');
-    Route::get('/blog','AdminGetController@get_blog');
-    Route::get('/blog/blog-ekle','AdminGetController@get_blog_ekle');
     Route::post('/ayarlar','AdminPostController@post_ayarlar');
     Route::post('/hakkimizda','AdminPostController@post_hakkimizda');
-    Route::post('/blog/blog-ekle','AdminPostController@post_blog_ekle');
+
+    Route::group(['prefix'=>'blog'],function (){
+        Route::get('/','AdminGetController@get_blog');
+        Route::post('/','AdminPostController@post_blog');
+        Route::get('/blog-ekle','AdminGetController@get_blog_ekle');
+        Route::post('/blog-ekle','AdminPostController@post_blog_ekle');
+        Route::get('/blog-duzenle/{slug}','AdminGetController@get_blog_duzenle');
+    });
+
 });
 

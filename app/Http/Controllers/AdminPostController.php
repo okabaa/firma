@@ -71,13 +71,13 @@ class AdminPostController extends AdminController
         $resimler = $request->file('resimler');
 
         if (!empty($resimler)) {
-             $i = 0;
+            $i = 0;
             foreach ($resimler as $resim) {
                 $i++;
                 $resim_uzanti = $resim->getClientOriginalExtension();
-                $resim_isim = $i.'_'.$tarih.'.' . $resim_uzanti;
-                Storage::disk('uploads')->makeDirectory('img/blog/'.$slug);
-                Storage::disk('uploads')->put('img/blog/'.$slug.'/'.$resim_isim,file_get_contents($resim));
+                $resim_isim = $i . '_' . $tarih . '.' . $resim_uzanti;
+                Storage::disk('uploads')->makeDirectory('img/blog/' . $slug);
+                Storage::disk('uploads')->put('img/blog/' . $slug . '/' . $resim_isim, file_get_contents($resim));
             }
         }
         try {
@@ -89,6 +89,17 @@ class AdminPostController extends AdminController
             return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Kayıt başarıyla yapıldı.']);
         } catch (\Exception $e) {
             return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>' . $e->getMessage()]);
+        }
+    }
+
+    public function post_blog(Request $request)
+    {
+        try {
+            Blog::where('slug', $request->slug)->delete();
+            Storage::disk('uploads')->deleteDirectory('img/blog/' . $request->slug);
+            return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Silindi.']);
+        } catch (\Exception $e) {
+            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Silinmedi!<br>' . $e->getMessage()]);
         }
     }
 }
