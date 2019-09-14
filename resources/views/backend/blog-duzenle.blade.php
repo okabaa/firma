@@ -59,13 +59,14 @@
                                                class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
-                                {{Form::bsText('baslik','Başlik',$bloglar->baslik)}}
-                                {{Form::bsText('etiketler','Etiketler',$bloglar->etiketler)}}
+                                {{Form::bsText('baslik','Başlik',$bloglar->baslik,['required'=>'required'])}}
+                                {{Form::bsText('kisaicerik','Kısa Açıklama',$bloglar->kisaicerik,['required'=>'required'])}}
+                                {{Form::bsText('etiketler','Etiketler',$bloglar->etiketler,['required'=>'required'])}}
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo-name">İçerik
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea name="icerik" id="" cols="30" rows="10"
+                                            <textarea name="icerik" id="" cols="30" rows="10" required="required"
                                                       class="form-control col-md-7 col-xs-12 ckeditor">{{$bloglar->icerik}}</textarea>
                                     </div>
                                 </div>

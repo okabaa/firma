@@ -24,17 +24,18 @@
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo-name">Resimler
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="file" name="resimler[]" multiple
+                                        <input type="file" name="resimler[]" multiple required="required"
                                                class="form-control col-md-7 col-xs-12">
                                     </div>
                                 </div>
-                                {{Form::bsText('baslik','Başlik')}}
-                                {{Form::bsText('etiketler','Etiketler')}}
+                                {{Form::bsText('baslik','Başlik','',['required'=>'required'])}}
+                                {{Form::bsText('kisaicerik','Kısa Açıklama','',['required'=>'required'])}}
+                                {{Form::bsText('etiketler','Etiketler','',['required'=>'required'])}}
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo-name">İçerik
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                            <textarea name="icerik" id="" cols="30" rows="10"
+                                            <textarea name="icerik" id="" cols="30" rows="10" required="required"
                                                       class="form-control col-md-7 col-xs-12 ckeditor"></textarea>
                                     </div>
                                 </div>

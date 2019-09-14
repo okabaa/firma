@@ -8,6 +8,7 @@ use App\Hakkimizda;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 
 class AdminPostController extends AdminController
@@ -66,6 +67,20 @@ class AdminPostController extends AdminController
 
     public function post_blog_ekle(Request $request)
     {
+
+        $validator = Validator::make($request->all(),
+            [
+                'resimler[]' => 'mimes:jpg,jpeg,png,gif',
+                'baslik' => 'required|max:250',
+                'kisaicerik' => 'required|max:500',
+                'etiketler' => 'required|max:250',
+                'icerik' => 'required'
+
+            ]);
+        if ($validator->fails()) {
+            return response(['durum' => 'error', 'baslik' => 'Hata!', 'icerik' => 'Zorunlu alanlar doldurulmalıdır.']);
+        }
+
         $tarih = str_slug(Carbon::now());
         $slug = str_slug($request->baslik) . '-' . $tarih;
         $resimler = $request->file('resimler');
@@ -105,6 +120,18 @@ class AdminPostController extends AdminController
 
     public function post_blog_duzenle(Request $request)
     {
+        $validator = Validator::make($request->all(),
+            [
+                'baslik' => 'required|max:250',
+                'kisaicerik' => 'required|max:500',
+                'etiketler' => 'required|max:250',
+                'icerik' => 'required'
+
+            ]);
+        if ($validator->fails()) {
+            return response(['durum' => 'error', 'baslik' => 'Hata!', 'icerik' => 'Zorunlu alanlar doldurulmalıdır.']);
+        }
+
         if (isset($request->resim)) {
             try {
                 Storage::disk('uploads')->delete($request->resim);
@@ -127,7 +154,7 @@ class AdminPostController extends AdminController
                 }
             }
             try {
-                Blog::where('slug',$request->slug)->update(['baslik' => $request->baslik, 'etiketler' => $request->etiketler, 'icerik' => $request->icerik]);
+                Blog::where('slug', $request->slug)->update(['baslik' => $request->baslik, 'etiketler' => $request->etiketler, 'icerik' => $request->icerik,'kisaicerik'=>$request->kisaicerik]);
                 return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Güncellendi.']);
             } catch (\Exception $e) {
                 return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Güncellenmedi!<br>' . $e->getMessage()]);

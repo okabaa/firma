@@ -100,6 +100,7 @@
                 <nav class="nav-main mega-menu">
                     <ul class="nav nav-pills nav-main" id="mainMenu">
                         <li> <a href="/">Ana Sayfa</a> </li>
+                        <li> <a href="/blog">Blog</a> </li>
                         <li> <a href="/hakkimizda">Hakkımızda</a> </li>
                         <li> <a href="/iletisim">Bize Ulaşın</a> </li>
                     </ul>

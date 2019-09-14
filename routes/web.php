@@ -18,23 +18,27 @@ Route::get('/home', 'HomeGetController@get_index_yonlendir');
 Route::get('/iletisim', 'HomeGetController@get_iletisim');
 Route::get('/hakkimizda', 'HomeGetController@get_hakkimizda');
 Route::get('/blog', 'HomeGetController@get_blog');
-Route::get('/blog/blog-detay', 'HomeGetController@get_blog_detay');
+Route::get('/blog/{slug}', 'HomeGetController@get_blog_icerik');
 
-Route::group(['prefix'=>'admin'],function (){
-    Route::get('/','AdminGetController@get_index');
-    Route::get('/ayarlar','AdminGetController@get_ayarlar');
-    Route::get('/hakkimizda','AdminGetController@get_hakkimizda');
-    Route::post('/ayarlar','AdminPostController@post_ayarlar');
-    Route::post('/hakkimizda','AdminPostController@post_hakkimizda');
+Route::group(['prefix' => 'admin', 'middleware' => 'Admin'], function () {
+    Route::get('/', 'AdminGetController@get_index');
+    Route::get('/ayarlar', 'AdminGetController@get_ayarlar');
+    Route::get('/hakkimizda', 'AdminGetController@get_hakkimizda');
+    Route::post('/ayarlar', 'AdminPostController@post_ayarlar');
+    Route::post('/hakkimizda', 'AdminPostController@post_hakkimizda');
 
-    Route::group(['prefix'=>'blog'],function (){
-        Route::get('/','AdminGetController@get_blog');
-        Route::post('/','AdminPostController@post_blog');
-        Route::get('/blog-ekle','AdminGetController@get_blog_ekle');
-        Route::post('/blog-ekle','AdminPostController@post_blog_ekle');
-        Route::get('/blog-duzenle/{slug}','AdminGetController@get_blog_duzenle');
-        Route::post('/blog-duzenle/{slug}','AdminPostController@post_blog_duzenle');
+    Route::group(['prefix' => 'blog'], function () {
+        Route::get('/', 'AdminGetController@get_blog');
+        Route::post('/', 'AdminPostController@post_blog');
+        Route::get('/blog-ekle', 'AdminGetController@get_blog_ekle');
+        Route::post('/blog-ekle', 'AdminPostController@post_blog_ekle');
+        Route::get('/blog-duzenle/{slug}', 'AdminGetController@get_blog_duzenle');
+        Route::post('/blog-duzenle/{slug}', 'AdminPostController@post_blog_duzenle');
     });
 
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
