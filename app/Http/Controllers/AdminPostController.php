@@ -102,4 +102,36 @@ class AdminPostController extends AdminController
             return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Silinmedi!<br>' . $e->getMessage()]);
         }
     }
+
+    public function post_blog_duzenle(Request $request)
+    {
+        if (isset($request->resim)) {
+            try {
+                Storage::disk('uploads')->delete($request->resim);
+                return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Silindi.']);
+            } catch (\Exception $e) {
+                return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Silinmedi!<br>' . $e->getMessage()]);
+            }
+        } else {
+            $tarih = str_slug(Carbon::now());
+            $resimler = $request->file('resimler');
+
+            if (!empty($resimler)) {
+                $i = $request->sayi;
+                foreach ($resimler as $resim) {
+                    $i++;
+                    $resim_uzanti = $resim->getClientOriginalExtension();
+                    $resim_isim = $i . '_' . $tarih . '.' . $resim_uzanti;
+                    Storage::disk('uploads')->makeDirectory('img/blog/' . $request->slug);
+                    Storage::disk('uploads')->put('img/blog/' . $request->slug . '/' . $resim_isim, file_get_contents($resim));
+                }
+            }
+            try {
+                Blog::where('slug',$request->slug)->update(['baslik' => $request->baslik, 'etiketler' => $request->etiketler, 'icerik' => $request->icerik]);
+                return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Güncellendi.']);
+            } catch (\Exception $e) {
+                return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Güncellenmedi!<br>' . $e->getMessage()]);
+            }
+        }
+    }
 }

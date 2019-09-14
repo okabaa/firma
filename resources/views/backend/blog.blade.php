@@ -55,7 +55,7 @@
                                                     <input type="submit" class="btn btn-danger" value="Sil">
                                                 </form>
                                             </td>
-                                            <td><a href="blog/blog-duzenle/{{$blog->slug}}" class="btn btn-primary">Düzenle</a> </td>
+                                            <td><a href="blog-duzenle/{{$blog->slug}}" class="btn btn-primary">Düzenle</a> </td>
                                         </tr>
 
                                         @php
