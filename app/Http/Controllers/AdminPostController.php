@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ayarlar;
 use App\Blog;
 use App\Hakkimizda;
+use App\Kategori;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -159,6 +160,25 @@ class AdminPostController extends AdminController
             } catch (\Exception $e) {
                 return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Güncellenmedi!<br>' . $e->getMessage()]);
             }
+        }
+    }
+
+    public function post_kategori_ekle (Request $request){
+        $validator = Validator::make($request->all(),
+            [
+                'ad' => 'required|max:50'
+            ]);
+        if ($validator->fails()) {
+            return response(['durum' => 'error', 'baslik' => 'Hata!', 'icerik' => 'Kategori adını giriniz.']);
+        }
+        try {
+            unset($request['_token']);
+            $slug = str_slug($request->ad);
+            $request->merge(['slug' => $slug]);
+            Kategori::create($request->all());
+            return response(['durum' => 'success', 'baslik' => 'Başarılı', 'icerik' => 'Kayıt başarıyla yapıldı.']);
+        } catch (\Exception $e) {
+            return response(['durum' => 'error', 'baslik' => 'Hatalı', 'icerik' => 'Kayıt yapılamadı.<br>' . $e->getMessage()]);
         }
     }
 }

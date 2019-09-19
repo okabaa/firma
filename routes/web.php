@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'Admin'], function () {
         Route::post('/blog-ekle', 'AdminPostController@post_blog_ekle');
         Route::get('/blog-duzenle/{slug}', 'AdminGetController@get_blog_duzenle');
         Route::post('/blog-duzenle/{slug}', 'AdminPostController@post_blog_duzenle');
+        Route::get('/kategori-ekle', 'AdminGetController@get_kategori_ekle');
+        Route::post('/kategori-ekle', 'AdminPostController@post_kategori_ekle');
+        Route::get('/kategoriler', 'AdminGetController@get_kategoriler');
     });
 
 });
